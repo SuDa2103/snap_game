@@ -1,5 +1,5 @@
 class Card
-  attr_reader :card, :card_number
+  attr_reader :card, :card_suit, :card_number
   def initialize
     suits = %w[Hearts Diamonds Clubs Spades]
     numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace']
@@ -9,17 +9,29 @@ class Card
   end
 end
 
-card1 = Card.new
-puts card1.card
-puts 'Do you want to select another card (select y for yes or n for no)?'
-answer = gets.chomp
-if answer == 'y'
-  card2 = Card.new
-  puts card2.card
-elsif answer == 'n'
-  puts 'This game has now ended. Goodbye!'
-else
-  puts "We didn't catch that. Please select y to draw a card or n to end game"
+puts 'The first card is..'
+card_prev = Card.new
+puts "#{card_prev.card_number} of #{card_prev.card_suit}"
+
+loop do
+  puts 'Do you want to select another card (select y for yes or n for no)?'
+  answer = gets.chomp
+  if answer == 'y'
+    card_next = Card.new
+    puts 'Your next card is...'
+    puts "#{card_next.card_number} of #{card_next.card_suit}"
+      if card_next.card_number == card_prev.card_number
+        puts 'SNAP!'
+        break
+      else
+        card_prev = card_next
+      end
+  elsif answer == 'n'
+    puts 'This game has now ended. Goodbye!'
+    break
+  else
+    puts "We didn't catch that. Please select y to draw a card or n to end game"
+  end
 end
 
 # Each card should have a .number and a .suit method. Attribute readers for number and suits. Then we can compare the numbers and suits of different instances of Card
