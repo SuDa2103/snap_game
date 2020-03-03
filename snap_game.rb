@@ -15,13 +15,15 @@ class SnapGame
     puts 'Enter number between 1 and 5'
     @time = gets.chomp.to_i
     @reaction_time = @time
+    # Or for a reaction time that is random within a specified range:
+    # @reaction_time = rand(0..5)
   end
 
   def first_card
     puts '----------------------------------------------'
     puts 'The first card is..'
     @card_prev = Card.new
-    puts "#{@card_prev.card_number} of #{@card_prev.card_suit}"
+    puts "#{@card_prev.card_number} of #{@card_prev.card_suit.capitalize}"
   end
 
   def play
