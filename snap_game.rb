@@ -1,8 +1,5 @@
 require_relative 'card.rb'
 
-checkmark = "\u2713"
-puts checkmark.encode('utf-8')
-
 class SnapGame
   def initialize
     puts '----------------------------------------------'
@@ -24,6 +21,7 @@ class SnapGame
     puts 'The first card is..'
     @card_prev = Card.new
     puts "#{@card_prev.card_number} of #{@card_prev.card_suit.capitalize}"
+    @card_prev
   end
 
   def play
@@ -39,6 +37,7 @@ class SnapGame
         puts "#{@card_next.card_number} of #{@card_next.card_suit}"
         if @card_next.card_number == @card_prev.card_number
           puts 'SNAP!'
+          puts 'GAME OVER!'
           break
         else
           @card_prev = @card_next
