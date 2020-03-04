@@ -26,4 +26,4 @@ To run tests:
 $ bundle install
 $ bundle exec rspec 
 ```
-This will then cycle through the game a few times and then output the test results. These games can be ended prematurely by pressing n, as long as there have been a few cards played in every cycle of the game the tests will not be affected. 
+This will then cycle through the game a few times and then output the test results. These games can be ended prematurely by pressing n, as long as there have been at least three cards played in every cycle of the game the tests will not be affected. 
