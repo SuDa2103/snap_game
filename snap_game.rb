@@ -10,9 +10,13 @@ class SnapGame
 
   def reaction
     puts 'Choose Computer Reaction reaction time in seconds'
-    puts 'Enter number between 1 and 5'
+    puts 'Enter number from 1 to 5 (other keys select an immediate reaction)'
     @time = gets.chomp.to_i
-    @reaction_time = @time
+    if @time.positive? && @time < 5
+      @reaction_time = @time
+    else
+      @reaction_time = 0
+    end
     ## Or for a reaction time that is random within a specified range:
     # @reaction_time = rand(0..5)
   end
