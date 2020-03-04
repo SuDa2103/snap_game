@@ -5,9 +5,6 @@ describe SnapGame do
   test = SnapGame.new
 
   describe '#reaction' do
-    let (:expected_results) do
-      [1..5]
-    end
     it 'Records a reaction time between 1 and 5 seconds' do
       (test.reaction).between?(1, 5)
     end
