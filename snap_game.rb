@@ -21,7 +21,7 @@ class SnapGame
     puts '----------------------------------------------'
     puts 'The first card is..'
     @card_prev = Card.new
-    puts "\e[1m#{@card_prev.card_number} of #{@card_prev.card_suit.upcase}\e[0m"
+    puts "\e[1m#{@card_prev.card_number} of #{@card_prev.card_suit}\e[0m"
     @card_prev
   end
 
