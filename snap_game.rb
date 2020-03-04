@@ -21,7 +21,7 @@ class SnapGame
     puts '----------------------------------------------'
     puts 'The first card is..'
     @card_prev = Card.new
-    puts "#{@card_prev.card_number} of #{@card_prev.card_suit.capitalize}"
+    puts "\e[1m#{@card_prev.card_number} of #{@card_prev.card_suit.upcase}\e[0m"
     @card_prev
   end
 
@@ -47,7 +47,7 @@ class SnapGame
       @card_next = Card.new
       puts '----------------------------------------------'
       puts 'Your next card is...'
-      puts "#{@card_next.card_number} of #{@card_next.card_suit}"
+      puts "\e[1m #{@card_next.card_number} of #{@card_next.card_suit}\e[0m"
       self.check
     elsif @answer == 'n'
       puts 'This game has now ended. Goodbye!'
