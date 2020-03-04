@@ -1,13 +1,6 @@
 require_relative '../snap_game.rb'
 require_relative '../card.rb'
 
-describe Card do
-  test_card = Card.new
-  describe '#initialize' do
-    [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'].include? test_card.card_number
-  end
-end
-
 describe SnapGame do
   test = SnapGame.new
 
@@ -23,6 +16,17 @@ describe SnapGame do
   describe '#first_card' do
     it 'Produces an instance of card to begin game' do
       expect(test.first_card).to be_a Card
+    end
+  end
+
+  describe '#play' do
+    test.reaction
+    test.first_card
+    test.first_card.card_number = 6
+    test.play
+    test.next_card.card_number = 6
+    it 'Puts snap when the numbers of two consecutive cards match' do
+      expect(test.play). to eq('SNAP!')
     end
   end
 end
