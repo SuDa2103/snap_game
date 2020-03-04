@@ -22,4 +22,4 @@ To run tests:
 $ bundle install
 $ bundle exec rspec 
 ```
-This will then cycle through the game a few times and then output the test results. 
+This will then cycle through the game a few times and then output the test results. These games can be ended prematurely by pressing n, the tests will not be affected
