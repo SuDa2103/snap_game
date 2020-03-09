@@ -40,7 +40,6 @@ class SnapGame
       puts '----------------------------------------------'
       puts 'Do you want to select another card (select y for yes or n for no)?'
       @answer = gets.chomp
-      sleep(@reaction_time)
       self.next_card
     end
     'SNAP!'
@@ -52,6 +51,7 @@ class SnapGame
       puts '----------------------------------------------'
       puts 'Your next card is...'
       puts "\e[1m #{@card_next.card_number} of #{@card_next.card_suit}\e[0m"
+      puts 'Press any key to declare Snap'
       self.check
     elsif @answer == 'n'
       puts 'This game has now ended. Goodbye!'
@@ -62,11 +62,17 @@ class SnapGame
   end
 
   def check
+    sleep(@reaction_time)
     # Here we check whether the new card matches the last one
     if @card_next.card_number == @card_prev.card_number
       @snap = true
-      puts 'SNAP!'
-      puts 'GAME OVER!'
+      if gets.chomp.empty?
+        puts 'SNAP!'
+        puts 'GAME OVER! You lost'
+      else
+        puts 'SNAP!'
+        puts 'GAME OVER! You win'
+      end
     else
       # If no match this current card becomes the card we compare to next round
       @card_prev = @card_next
